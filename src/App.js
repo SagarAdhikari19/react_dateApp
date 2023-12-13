@@ -18,7 +18,8 @@ function Counter() {
   const [step, setStep] = useState(1);
 
   const [count, setCounter] = useState(0);
-  const date = new Date();
+  const date = new Date("dec 13 2023");
+  date.setDate(date.getDate() + count);
   return (<>
 
     <div>
