@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import './App.css';
 
+
 function App() {
   return (
     <div className="App">
@@ -16,7 +17,8 @@ function Counter() {
 
   const [step, setStep] = useState(1);
 
-  const [Counter, setCounter] = useState(0);
+  const [count, setCounter] = useState(0);
+  const date = new Date();
   return (<>
 
     <div>
@@ -29,10 +31,26 @@ function Counter() {
     <br></br>
     <div>
       <button onClick={() => setCounter((c) => c - step)} >-</button>
-      <span>COUNT   {Counter} </span>
+      <span>COUNT   {count} </span>
       <button onClick={() => setCounter((c) => c + step)}>+</button>
 
     </div>
+
+    <p>
+      <span>
+
+        {count === 0
+          ? "Today is "
+          : count > 0
+            ? `${count} days from today is `
+            : `${Math.abs(count)} days ago was `
+        }
+
+
+
+      </span>
+      <span>{date.toDateString()}</span>
+    </p>
 
   </>
 
